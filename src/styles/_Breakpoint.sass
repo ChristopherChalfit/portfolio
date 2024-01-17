@@ -1,0 +1,22 @@
+@mixin mobile
+  @media screen and (max-width: 768px)
+    @content
+
+@mixin tablet
+  @media screen and (min-width: 769px) and (max-width: 991px)
+    @content
+
+@mixin desktop
+  @media screen and (min-width: 992px)
+    @content
+@mixin media($keys...)
+  @each $key in $keys
+    @if ($key == phone)
+      @include mobile
+        @content
+    @else if ($key == tablet)
+      @include tablet
+        @content
+    @else if ($key == desktop)
+      @include desktop
+        @content

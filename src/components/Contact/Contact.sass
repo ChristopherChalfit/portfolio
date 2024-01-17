@@ -1,0 +1,125 @@
+@import '../../styles/_Breakpoint'
+@import '../../styles/_Var'
+.contact
+    display: flex
+    flex-direction: column
+    align-items: center
+    &--head
+        font-size: xxx-large
+        font-weight: bold
+    img
+        width: 25%
+        height: 25%
+    &--form
+        background-color: $whitecolor
+        color: $bluecolor !important
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr
+        grid-template-areas: "name" "email" "tel" "subject" "message" "submit"
+        gap: 16px
+        margin: auto
+        padding-block: 16px
+        justify-items: center
+        @include tablet
+            padding: 5px
+        @include desktop
+            padding: 25px
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-template-areas: "name email ." "tel subject ." "message message ." "submit submit ."
+        align-items: center
+        max-width: 890px
+        width: 100%
+        height: 100%
+        border-radius: 50px
+        box-shadow: 0.25rem 0.25rem 0.625rem rgba(0, 0, 0, 0.25)
+        input[type=text], input[type=tel], input[type=email],textarea[type=text]
+            background: 0
+            border: 0
+            outline: none
+            font-size: 1.5em
+            transition: padding 0.3s 0.2s ease
+            font-size: 1em
+    &--input
+        border: 0
+        &:focus + .line 
+            &:after 
+                transform: scaleX(1)
+ 
+.line
+    width: 100%
+    height: 3px
+    background: $bluecolor
+    &:after
+      content: " "
+      float: right
+      width: 100%
+      height: 3px
+      transform: scalex(0)
+      transition: transform 0.3s ease
+      background: #1abc9c
+.name
+    grid-area: name
+    display: flex
+    flex-direction: column
+    width: 80%
+    @include desktop
+        width: 100%
+    @include tablet
+        width: 90%
+.email
+    grid-area: email
+    display: flex
+    flex-direction: column
+    width: 80%
+    @include desktop
+        width: 100%
+    @include tablet
+        width: 90%
+.tel
+    grid-area: tel
+    display: flex
+    flex-direction: column
+    width: 80%
+    @include desktop
+        width: 100%
+    @include tablet
+        width: 90%
+.subject
+    grid-area: subject
+    display: flex
+    flex-direction: column
+    width: 80%
+    @include desktop
+        width: 100%
+    @include tablet
+        width: 90%
+.message
+    grid-area: message
+    display: flex
+    flex-direction: column
+    width: 80%
+    @include desktop
+        width: 100%
+    @include tablet
+        width: 90%
+    &--area
+        height: 250px
+        background: 0
+        &:focus
+            background: white
+.submit
+    grid-area: submit
+    background: $bluecolor
+    color: $whitecolor
+    padding: .75rem 1.5rem
+    font-size: 1.1rem
+    border: 0
+    border-radius: 6.25rem
+    cursor: pointer
+    transition-duration: 0.25s
+    box-shadow: 0.25rem 0.25rem 0.625rem rgba(0, 0, 0, 0.25)
+    &:hover 
+            background-color: $bluecolor
+            box-shadow: 0.25rem 0.25rem 0.625rem rgba(0, 0, 0, 0.50) 

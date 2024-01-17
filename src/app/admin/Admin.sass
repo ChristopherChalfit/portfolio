@@ -1,0 +1,50 @@
+@import '../../styles/_Breakpoint'
+@import '../../styles/_Var'
+.admin
+    display: flex
+    flex-direction: column
+    align-items: center
+    &--contact
+        display: flex
+        flex-direction: column
+    &--table
+        border-collapse: separate
+        border-spacing: 25px
+        width: 100%
+    &--td
+        display: flex
+        justify-content: center
+    &--contact--td>.collapse
+        margin: 0
+    &--img
+        width: 10%
+    &--userImage
+        width: 5%
+    &--btn
+        padding: .75rem 1.5rem
+        font-size: 1.1rem
+        border-radius: 6.25rem
+        background-color: #dcdbcf
+        cursor: pointer
+        transition-duration: .25s
+        box-shadow: .25rem .25rem .625rem rgba(0,0,0,.25)
+        max-width: 13.625rem
+        max-width: none
+        color: #28384d
+        &:hover 
+            background-color: $whitecolor
+            box-shadow: 0.25rem 0.25rem 0.625rem rgba(0, 0, 0, 0.50) 
+.tabs
+    &--h2
+        display: flex
+        justify-content: center
+
+.unread-badge
+    background-color: red
+    color: white
+    border-radius: 50%
+    padding: 0.25rem 0.5rem
+    margin-left: 0.5rem
+    font-size: 0.75rem
+.react-tabs
+    width: 100%

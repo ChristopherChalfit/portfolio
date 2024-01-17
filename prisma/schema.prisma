@@ -1,0 +1,95 @@
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  
+  access_token       String?  
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  picture         String?
+  accounts      Account[]
+  sessions      Session[]
+  updated_at    String?
+  nickname      String?
+  iss           String?
+  aud           String?
+  iat           Int?
+  exp           Int?
+  sub           String?
+  sid           String?
+  role          String?       @default("user")
+}
+model Skills {
+  id            String    @id @default(cuid())
+  name          String @unique
+  icon         String?
+  isActif       Boolean @default(false)
+  projects      Projects[]  // Ajoutez cette ligne pour définir le champ opposé
+  date          DateTime @default(now())
+  @@map(name: "skills")
+}
+
+model Projects {
+  id            String    @id @default(cuid())
+  name          String?
+  client        String?
+  presentation  String?
+  description   String?
+  linkgithub    String?
+  linkpreview   String?
+  tags          Skills[]
+  image         String?
+  date          DateTime @default(now())
+  @@map(name: "projects")
+}
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+model Contact{
+  id        String      @id @default(cuid())
+  name        String
+  email        String
+  telephone        String
+  subject        String
+  message        String
+  date          DateTime @default(now())
+  isRead        Boolean @default(false)
+}

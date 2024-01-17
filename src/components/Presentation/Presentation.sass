@@ -1,0 +1,44 @@
+@import '../../styles/_Breakpoint'
+@import '../../styles/_Var'
+.presentation
+    display: flex
+    flex-direction: column-reverse
+    justify-content: space-between
+    align-items: center
+    gap: 25px
+    padding-bottom: 10%
+    @include desktop
+        flex-direction: row
+        width: 80%
+    p, h2
+        margin: 0
+    &--image
+        width: 50%
+        height: 50%
+        transition: all .5s
+        &:hover,&:focus,&:active
+            opacity: 1
+            transform: scale(1.2)
+        @include desktop
+            width: 30%
+    &--head
+        font-size: 30px
+        margin-left: 2%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        svg
+            width:10%
+    &--name
+        background: linear-gradient(157deg, rgba(255,225,180,1) 0%, rgba(67,74,106,1) 100%)
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+    &--text
+        p, h2
+            margin: 0
+    &--textWriter
+        display: flex
+        justify-content: center
+        font-size: 2.8125rem
+        min-height: 3.75rem

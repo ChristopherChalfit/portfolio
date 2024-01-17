@@ -1,0 +1,45 @@
+@import '../../../styles/_Var'
+@import '../../../styles/_Breakpoint'
+.project
+    display: flex
+    flex-direction: column
+    align-items: center
+    &--skill
+        width: 100%
+        display: flex
+    &--tags
+        display: flex
+        flex-direction: column
+        width: 10%
+    &--img
+        border-radius: 5%
+        width: 90%
+        height: 90%
+        @include media("desktop")
+            width: 50%
+            height: 50%
+    &--description
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        width: 100%
+        overflow: hidden 
+        flex: 1
+        table 
+            width: 100% !important
+            table-layout: fixed 
+        img 
+            max-width: 100% 
+            height: auto 
+    &--link
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        gap: 50px
+        a
+            display: flex
+            gap: 15px
+            transition: all .5s
+            &:hover,&:focus,&:active
+                opacity: 1
+                transform: scale(1.2)
