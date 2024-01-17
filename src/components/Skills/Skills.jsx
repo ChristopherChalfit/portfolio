@@ -12,7 +12,6 @@ export default function Skills() {
       <h2 className={`skills--head ${BebasNeue.className}`}>MES COMPÉTENCES</h2>{" "}
       <div className="skills--list">
         {m_skills.map((skill) => (
-          
           skill.isActif ? (
           <div className="skills--content" key={skill.id}>
             <Image
